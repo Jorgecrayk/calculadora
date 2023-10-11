@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora</title>
+</head>
+
+<body>
+    <h1>calculadora</h1>
+
+    <div class="big-box">
+
+        <form action="" class="buttons" name="calculator">
+            <input type="text" name="text1" id="text" disabled>
+            <input type="button" class="mcolor" value="C" onclick="clearDisplay()" name="clearButton">
+
+            <input class="mcolor" type="button" value="9" name="btn9" onclick="appendToDisplay(btn9.value)">
+            <input class="mcolor" type="button" value="8" name="btn8" onclick="appendToDisplay(btn8.value)">
+            <input class="mcolor" type="button" value="7" name="btn7" onclick="appendToDisplay(btn7.value)">
+            <input class="mcolor" type="button" value="+" name="addbtn" onclick="appendToDisplay(addbtn.value)">
+
+            <input class="mcolor" type="button" value="6" name="btn6" onclick="appendToDisplay(btn6.value)">
+            <input class="mcolor" type="button" value="5" name="btn5" onclick="appendToDisplay(btn5.value)">
+            <input class="mcolor" type="button" value="4" name="btn4" onclick="appendToDisplay(btn4.value)">
+            <input class="mcolor" type="button" value="-" name="menusbtn" onclick="appendToDisplay(menusbtn.value)">
+            <input class="mcolor" type="button" value="3" name="btn3" onclick="appendToDisplay(btn3.value)">
+            <input class="mcolor" type="button" value="2" name="btn2" onclick="appendToDisplay(btn2.value)">
+            <input class="symbols" type="button" value="1" name="btn1" onclick="appendToDisplay(btn1.value)">
+           <input class="symbols" type="button" value="*" name="multbtn" onclick="appendToDisplay(multbtn.value)"> <input class="symbols" type="button" value="0" name="btn0" onclick="appendToDisplay(btn0.value)">
+            <input class="symbols" type="button" value="/" name="divbtn" onclick="appendToDisplay(divbtn.value)">
+
+            <input class="symbols" type="button" value="." name="dot" onclick="appendToDisplay(dot.value)">
+            <input class="symbols" id="equal" type="button" value="=" name="eqlbtn" onclick="calculate()">
+
+        </form>
+    </div>
+    <script>
+        let displayValue = "";
+
+        function appendToDisplay(value) {
+            displayValue += value;
+            calculator.text1.value = displayValue;
+        }
+
+        function clearDisplay() {
+            displayValue = "";
+            calculator.text1.value = "";
+        }
+
+        function calculate() {
+            try {
+                displayValue = eval(displayValue);
+                calculator.text1.value = displayValue;
+            } catch (error) {
+                calculator.text1.value = "Erro";
+                displayValue = "";
+            }
+        }
+    </script>
+</body>
+
+</html>
